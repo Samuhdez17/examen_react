@@ -17,7 +17,7 @@ export default class Personajes extends Component {
                 serie: res.data
             })
             console.log(this.state.serie);
-            
+
         })
 
         this.serviceSeries.getPersonajesSerie(this.idSerie).then((res) => {
@@ -33,33 +33,39 @@ export default class Personajes extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Personajes de { this.state.serie.nombre }</h1>
-                <hr />
-                <NavLink to={`/serie/${this.props.id}`}>
-                    Volver a serie
-                </NavLink>
-                <hr />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.personajes.map((personaje, i) => {
-                                return (
-                                    <tr key={i}>
-                                        <td>{ personaje.nombre }</td>
-                                        <td><img src={ personaje.imagen } alt="imagen personaje" /></td>
-                                    </tr>
-                                )
-                            })
-                        }
-                    </tbody>
-                </table>
+            <div className="bg-white shadow-lg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <h1 className="text-2xl font-bold text-gray-800 mb-6">Personajes de { this.state.serie.nombre }</h1>
+                    <div className="mb-4">
+                        <NavLink to={`/serie/${this.props.id}`} className="text-blue-600 hover:text-blue-800 font-medium px-3 py-1 rounded hover:bg-blue-50">
+                            Volver a serie
+                        </NavLink>
+                    </div>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-200">
+                            <thead>
+                                <tr className="bg-gray-50">
+                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imagen</th>
+                                </tr>
+                            </thead>
+                            <tbody className="bg-white divide-y divide-gray-200">
+                                {
+                                    this.state.personajes.map((personaje, i) => {
+                                        return (
+                                            <tr key={i} class="hover:bg-gray-50">
+                                                <td class="px-4 py-3 text-sm text-gray-700">{ personaje.nombre }</td>
+                                                <td class="px-4 py-3 text-sm text-gray-700">
+                                                    <img src={ personaje.imagen } alt="imagen personaje" class="h-16 w-16 object-cover rounded" />
+                                                </td>
+                                            </tr>
+                                        )
+                                    })
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         );
     }

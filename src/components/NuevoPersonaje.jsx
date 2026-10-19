@@ -9,7 +9,7 @@ export default class NuevoPersonaje extends Component {
 
     nombreRef = React.createRef();
     imagenRef = React.createRef();
-    serieRef = React.createRef();
+    serieRef = React.createRef()
 
     state = {
         series: [],
@@ -66,32 +66,39 @@ export default class NuevoPersonaje extends Component {
 
         else
             return (
-                <div>
-                    <h1>Crear personaje</h1>
-                    <hr />
-                    <form onSubmit={this.crearPersonaje}
-                    >
-                        <label>Nombre</label>
-                        <input type="text" ref={this.nombreRef} />
-
-                        <label>Imagen</label>
-                        <input type="text" ref={this.imagenRef} />
-
-                        <label>Serie</label>
-                        <select ref={this.serieRef}>
-                            {
-                                this.state.series.map((serie, i) => {
-                                        return (
-                                            <option key={i} value={serie.idSerie}>
-                                                {serie.nombre}
-                                            </option>
-                                        )
-                                    })
-                            }
-                        </select>
-
-                        <button>Crear</button>
-                    </form>
+                <div class="bg-white shadow-lg">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <h1 class="text-2xl font-bold text-gray-800 mb-6">Crear personaje</h1>
+                        <form onSubmit={this.crearPersonaje} class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                                <input type="text" ref={this.nombreRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Imagen</label>
+                                <input type="text" ref={this.imagenRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Serie</label>
+                                <select ref={this.serieRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    {
+                                        this.state.series.map((serie, i) => {
+                                            return (
+                                                <option key={i} value={serie.idSerie}>
+                                                    {serie.nombre}
+                                                </option>
+                                            )
+                                        })
+                                    }
+                                </select>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                    Crear
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             );
     }
