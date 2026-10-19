@@ -40,7 +40,7 @@ export default class SeriesService {
         return new Promise(function(resolve, reject) {
             try {
                 let url = Global.api
-                let request = 'api/Series/personajesSeries/' + id
+                let request = 'api/Series/PersonajesSerie/' + id
         
                 axios.get(url + request)
                 .then((res) => {

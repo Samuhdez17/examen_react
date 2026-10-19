@@ -58,12 +58,14 @@ export default class PersonajesService {
             try {
                 let url = Global.api
                 let request = 'api/Personajes/'
-        
                 axios.post(url + request, personaje)
                 .then((res) => {
                     resolve(res)
                 })
-        
+                .catch((error) => {
+                    reject(error)
+                })
+
             } catch (error) {
                 reject(error)
             }

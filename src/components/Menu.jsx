@@ -18,11 +18,7 @@ export default class Menu extends Component {
                 this.setState({
                     series: aux
                 })
-
-                console.log(res.data);
             })
-
-            console.log(this.state.series);
 
         } catch (error) {
             throw error
@@ -41,17 +37,17 @@ export default class Menu extends Component {
 
     render() {
         return (
-            <nav class="bg-white shadow-lg">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="relative flex items-center justify-between h-16">
+            <nav className="bg-white shadow-lg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="relative flex items-center justify-between h-16">
                         {/* logo */}
-                        <div class="flex-shrink-0 flex items-center">
-                            <span class="text-xl font-bold text-blue-700">Navbar</span>
+                        <div className="flex-shrink-0 flex items-center">
+                            <span className="text-xl font-bold text-blue-700">Navbar</span>
                         </div>
 
                         {/* menu */}
-                        <div class="hidden sm:block sm:ml-6">
-                            <ul class="flex space-x-4 text-gray-700 font-medium items-center">
+                        <div className="hidden sm:block sm:ml-6">
+                            <ul className="flex space-x-4 text-gray-700 font-medium items-center">
                                 <li className="hover:text-blue-600 px-3 py-2 rounded-md text-sm">
                                     <NavLink to='/'>Home</NavLink>
                                 </li>
@@ -64,18 +60,18 @@ export default class Menu extends Component {
                                     <NavLink to='/editar/'>Modificar personaje</NavLink>
                                 </li>
 
-                                <li class="relative group">
-                                    <button class="hover:text-blue-600 px-3 py-2 rounded-md text-sm flex items-center">
+                                <li className="relative group">
+                                    <button className="hover:text-blue-600 px-3 py-2 rounded-md text-sm flex items-center">
                                         Series
-                                        <svg class="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd"
+                                        <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fillRule="evenodd"
                                             d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd" />
+                                            clipRule="evenodd" />
                                         </svg>
                                     </button>
 
                                     <ul
-                                        class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150">
+                                        className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150">
                                         <li>
                                             {
                                                 this.state.series.map((serie, i) => {

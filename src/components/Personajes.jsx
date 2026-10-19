@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 
 export default class Personajes extends Component {
     serviceSeries = new SeriesService();
-    idSerie = this.props.id;
 
     state = {
         serie: {},
@@ -12,15 +11,13 @@ export default class Personajes extends Component {
     }
 
     cargarDatos = () => {
-        this.serviceSeries.getSerie(this.idSerie).then((res) => {
+        this.serviceSeries.getSerie(this.props.id).then((res) => {
             this.setState({
                 serie: res.data
             })
-            console.log(this.state.serie);
-
         })
 
-        this.serviceSeries.getPersonajesSerie(this.idSerie).then((res) => {
+        this.serviceSeries.getPersonajesSerie(this.props.id).then((res) => {
             this.setState({
                 personajes: res.data
             })
@@ -53,10 +50,10 @@ export default class Personajes extends Component {
                                 {
                                     this.state.personajes.map((personaje, i) => {
                                         return (
-                                            <tr key={i} class="hover:bg-gray-50">
-                                                <td class="px-4 py-3 text-sm text-gray-700">{ personaje.nombre }</td>
-                                                <td class="px-4 py-3 text-sm text-gray-700">
-                                                    <img src={ personaje.imagen } alt="imagen personaje" class="h-16 w-16 object-cover rounded" />
+                                            <tr key={i} className="hover:bg-gray-50">
+                                                <td className="px-4 py-3 text-sm text-gray-700">{ personaje.nombre }</td>
+                                                <td className="px-4 py-3 text-sm text-gray-700">
+                                                    <img src={ personaje.imagen } alt="imagen personaje" className="h-16 w-16 object-cover rounded" />
                                                 </td>
                                             </tr>
                                         )

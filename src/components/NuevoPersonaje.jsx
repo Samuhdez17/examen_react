@@ -34,12 +34,11 @@ export default class NuevoPersonaje extends Component {
     crearPersonaje = (e) => {
         e.preventDefault();
 
-        const nombre = this.nombreRef.current.value;
-        const imagen = this.imagenRef.current.value;
-        const serieId = this.serieRef.current.value;
+        let nombre  = this.nombreRef.current.value;
+        let imagen  = this.imagenRef.current.value;
+        let serieId = parseInt(this.serieRef.current.value)
 
         const personaje = {
-            idPersonaje: 0,
             nombre: nombre,
             imagen: imagen,
             idSerie: serieId
@@ -48,8 +47,11 @@ export default class NuevoPersonaje extends Component {
         try {
             this.servicePersonaje.crearPersonaje(personaje).then((res) => {
                 this.setState({
-                    status: true
+                    status: true,
                 })
+
+            }).catch((error) => {
+                throw error
             })
         } catch (error) {
             throw error
@@ -66,21 +68,21 @@ export default class NuevoPersonaje extends Component {
 
         else
             return (
-                <div class="bg-white shadow-lg">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                        <h1 class="text-2xl font-bold text-gray-800 mb-6">Crear personaje</h1>
-                        <form onSubmit={this.crearPersonaje} class="space-y-6">
+                <div className="bg-white shadow-lg">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <h1 className="text-2xl font-bold text-gray-800 mb-6">Crear personaje</h1>
+                        <form className="space-y-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
-                                <input type="text" ref={this.nombreRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Nombre</label>
+                                <input type="text" ref={this.nombreRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Imagen</label>
-                                <input type="text" ref={this.imagenRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Imagen</label>
+                                <input type="text" ref={this.imagenRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Serie</label>
-                                <select ref={this.serieRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Serie</label>
+                                <select ref={this.serieRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                     {
                                         this.state.series.map((serie, i) => {
                                             return (
@@ -92,8 +94,9 @@ export default class NuevoPersonaje extends Component {
                                     }
                                 </select>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <div className="flex items-center justify-between">
+                                <button onClick={this.crearPersonaje}
+                                type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     Crear
                                 </button>
                             </div>

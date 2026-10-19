@@ -62,13 +62,13 @@ export default class EditarPersonaje extends Component {
 
         else
             return (
-                <div class="bg-white shadow-lg">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                        <h1 class="text-2xl font-bold text-gray-800 mb-6">Modificar personaje</h1>
-                        <form onSubmit={this.modificarPersonaje} class="space-y-6">
+                <div className="bg-white shadow-lg">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <h1 className="text-2xl font-bold text-gray-800 mb-6">Modificar personaje</h1>
+                        <form onSubmit={this.modificarPersonaje} className="space-y-6">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Serie</label>
-                                <select ref={this.serieRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Serie</label>
+                                <select ref={this.serieRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                     {
                                         this.state.series.map((serie, i) => {
                                             return (
@@ -81,8 +81,8 @@ export default class EditarPersonaje extends Component {
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Personaje</label>
-                                <select ref={this.personajeRef} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">Personaje</label>
+                                <select ref={this.personajeRef} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                     {
                                         this.state.personajes.map((personaje, i) => {
                                             return (
@@ -94,8 +94,8 @@ export default class EditarPersonaje extends Component {
                                     }
                                 </select>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                            <div className="flex items-center justify-between">
+                                <button type="submit" className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                                     Editar personaje
                                 </button>
                             </div>
